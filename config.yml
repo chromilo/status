@@ -154,14 +154,13 @@ params:
   # For help, see the wiki:
   # https://github.com/cstate/cstate/wiki/Customization
   systems:
+    - name: Email
+      description: Email Delivery
+      category: Uncategorized
     - name: Yardi
       description: Yardi
       category: Uncategorized
       link: https://status.yardi.com
-    - name: Email
-      description: Email Delivery
-      category: Uncategorized
-
   # What date format to use?
   #
   # Hugo formatting docs:
