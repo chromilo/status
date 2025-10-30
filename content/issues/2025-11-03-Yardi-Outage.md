@@ -1,8 +1,8 @@
 ---
 title: Yardi Outage
 date: 2025-11-10 16:24:00
-resolved: false
-resolvedWhen: 
+resolved: true
+resolvedWhen: 2025-11-13 16:24:00
 # Possible severity levels: down, disrupted, notice
 severity: disrupted
 affected:
