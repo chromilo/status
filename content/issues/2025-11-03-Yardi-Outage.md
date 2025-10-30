@@ -6,7 +6,7 @@ resolvedWhen: 2025-11-05 16:58:00
 # Possible severity levels: down, disrupted, notice
 severity: disrupted
 affected:
-  - Yardi
+  - Email
 section: issue
 ---
 
