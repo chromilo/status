@@ -158,8 +158,11 @@ params:
       description: Yardi
       category: Uncategorized
       link: https://status.yardi.com
+    - name: Email
+      description: Email Delivery
+      category: Uncategorized
 
-
+	  
   # What date format to use?
   #
   # Hugo formatting docs:
