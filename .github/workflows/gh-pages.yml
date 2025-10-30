@@ -1,0 +1,26 @@
+name: Build and Deploy
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Install Hugo (Extended version)
+      - uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.134.2'
+          extended: true
+
+      # Build the static site
+      - run: hugo --minify
+
+      # Deploy to GitHub Pages
+      - uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          cname: status.yourdomain.com  # optional custom domain
