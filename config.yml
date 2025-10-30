@@ -143,10 +143,6 @@ params:
   # For help, see the wiki:
   # https://github.com/cstate/cstate/wiki/Customization
   categories:
-    - name: Enterprise
-      description: Critical applications hosted at SaaS vendor.
-      closed: true
-    - name: Empty Category
     - name: Uncategorized
       untitled: true
 
