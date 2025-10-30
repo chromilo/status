@@ -162,7 +162,6 @@ params:
       description: Email Delivery
       category: Uncategorized
 
-	  
   # What date format to use?
   #
   # Hugo formatting docs:
