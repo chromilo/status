@@ -6,10 +6,9 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write    # required for gh-pages deploy
+  contents: write
   pages: write
   id-token: write
-
 
 jobs:
   build:
@@ -18,7 +17,7 @@ jobs:
       - name: Checkout (with submodules)
         uses: actions/checkout@v4
         with:
-          submodules: recursive   # covers theme/submodules
+          submodules: recursive
           fetch-depth: 0
 
       - name: Setup Hugo (Extended)
@@ -27,23 +26,10 @@ jobs:
           hugo-version: '0.134.2'
           extended: true
 
-      # If cState (or your fork) uses Hugo Modules, this makes sure they’re pulled & cached
-      - name: Cache hugo_modules
-        uses: actions/cache@v4
-        with:
-          path: hugo_cache
-          key: ${{ runner.os }}-hugo-${{ hashFiles('**/go.mod') }}
-          restore-keys: |
-            ${{ runner.os }}-hugo-
-        env:
-          HUGO_CACHEDIR: hugo_cache
-
       - name: Build site
         env:
           HUGO_ENV: production
-          HUGO_CACHEDIR: hugo_cache
         run: |
-          # If using modules, this will fetch them; if not, it's a no-op
           hugo mod tidy || true
           hugo --minify
 
@@ -52,5 +38,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
-          # Uncomment if you use a custom domain and have a CNAME file instead:
           # cname: status.yourdomain.com
