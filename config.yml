@@ -143,8 +143,8 @@ params:
   # For help, see the wiki:
   # https://github.com/cstate/cstate/wiki/Customization
   categories:
-    - name: North Coast
-      description: The main servers are located here.
+    - name: Enterprise
+      description: Critical applications hosted at SaaS vendor.
       closed: true
     - name: Empty Category
     - name: Uncategorized
@@ -158,13 +158,9 @@ params:
   # For help, see the wiki:
   # https://github.com/cstate/cstate/wiki/Customization
   systems:
-    - name: Gateway
-      category: North Coast
-    - name: Backup Gateway
-      category: North Coast
     - name: Yardi
       description: Yardi
-      category: Uncategorized
+      category: Enterprise
       link: https://yardi.status.com
     - name: API
       description: The guts of the application.
@@ -240,7 +236,7 @@ params:
   #
   # Default: `yearly`
   # STRING; `monthly`, `yearly`, `none`
-  incidentHistoryFormat: "yearly"
+  incidentHistoryFormat: "monthly"
 
   # Should incident history be hidden?
   #
@@ -252,7 +248,7 @@ params:
   #
   # Default: `false`
   # BOOLEAN; `true`, `false`
-  disableIncidentHistory: false
+  disableIncidentHistory: true
 
   # Disable dark mode
   #
@@ -267,7 +263,7 @@ params:
   #
   # Default: `false`
   # BOOLEAN; `true`, `false`
-  disableDarkMode: false
+  disableDarkMode: true
 
   # Should we show the logo or the title
   # of the status page?
