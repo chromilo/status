@@ -1,8 +1,8 @@
 ---
 title: Yardi Outage
-date: 2017-12-17 16:24:00
+date: 2025-11-03 16:24:00
 resolved: true
-resolvedWhen: 2017-12-17 16:58:00
+resolvedWhen: 2025-11-05 16:58:00
 # Possible severity levels: down, disrupted, notice
 severity: disrupted
 affected:
