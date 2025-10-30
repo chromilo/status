@@ -1,26 +1,55 @@
-name: Build and Deploy
+name: Build and Deploy (cState)
+
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
+  workflow_dispatch:
+
+permissions:
+  contents: write    # required for gh-pages deploy
+  pages: write
+  id-token: write
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout (with submodules)
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive   # covers theme/submodules
+          fetch-depth: 0
 
-      # Install Hugo (Extended version)
-      - uses: peaceiris/actions-hugo@v2
+      - name: Setup Hugo (Extended)
+        uses: peaceiris/actions-hugo@v2
         with:
           hugo-version: '0.134.2'
           extended: true
 
-      # Build the static site
-      - run: hugo --minify
+      # If cState (or your fork) uses Hugo Modules, this makes sure they’re pulled & cached
+      - name: Cache hugo_modules
+        uses: actions/cache@v4
+        with:
+          path: hugo_cache
+          key: ${{ runner.os }}-hugo-${{ hashFiles('**/go.mod') }}
+          restore-keys: |
+            ${{ runner.os }}-hugo-
+        env:
+          HUGO_CACHEDIR: hugo_cache
 
-      # Deploy to GitHub Pages
-      - uses: peaceiris/actions-gh-pages@v3
+      - name: Build site
+        env:
+          HUGO_ENV: production
+          HUGO_CACHEDIR: hugo_cache
+        run: |
+          # If using modules, this will fetch them; if not, it's a no-op
+          hugo mod tidy || true
+          hugo --minify
+
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
-          cname: status.yourdomain.com  # optional custom domain
+          # Uncomment if you use a custom domain and have a CNAME file instead:
+          # cname: status.yourdomain.com
