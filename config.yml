@@ -157,6 +157,12 @@ params:
     - name: Email
       description: Email Delivery
       category: Uncategorized
+    - name: ServiceNow
+      description: ServiceNow
+      category: Uncategorized
+    - name: Talkdesk
+      description: Talkdesk
+      category: Uncategorized
     - name: Yardi
       description: Yardi
       category: Uncategorized
