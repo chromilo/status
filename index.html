@@ -30,6 +30,12 @@ API</li></ul></div></div></div></div><div id=modal-overlay class=hidden></div><d
           `;break}const d=e.querySelectorAll("button[data-copy]");d.forEach(e=>{e.addEventListener("click",()=>{const t=e.getAttribute("data-copy");navigator.clipboard.writeText(t).then(()=>{e.textContent="Copied!"}).catch(e=>{console.error("Failed to copy text:",e)})})})}}),c.addEventListener("click",r),i.addEventListener("click",r),document.addEventListener("click",function(e){!o.contains(e.target)&&!s.contains(e.target)&&(s.classList.add("hidden"),o.setAttribute("aria-expanded","false"))})})</script><div class=categories><div class="category category--open" id=uncategorized><div class=padding></div><div class=components><div class=component id=system-email data-status=ok><a href=/status/affected/email/ class=no-underline>Email
 </a><span class="tooltip tooltip--small">&nbsp; <span class=faded>(?)</span>
 <span class=tooltip__text>Email Delivery</span>
+</span><span class=component-status>Operational</span></div><div class=component id=system-servicenow data-status=ok><a href=/status/affected/servicenow/ class=no-underline>ServiceNow
+</a><span class="tooltip tooltip--small">&nbsp; <span class=faded>(?)</span>
+<span class=tooltip__text>ServiceNow</span>
+</span><span class=component-status>Operational</span></div><div class=component id=system-talkdesk data-status=ok><a href=/status/affected/talkdesk/ class=no-underline>Talkdesk
+</a><span class="tooltip tooltip--small">&nbsp; <span class=faded>(?)</span>
+<span class=tooltip__text>Talkdesk</span>
 </span><span class=component-status>Operational</span></div><div class=component id=system-yardi data-status=ok><a href=/status/affected/yardi/ class=no-underline>Yardi
 </a><span class="tooltip tooltip--small">&nbsp; <span class=faded>(?)</span>
 <span class=tooltip__text>Yardi</span>
