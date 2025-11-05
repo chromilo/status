@@ -1,7 +1,7 @@
 ---
 title: Talkdesk Outage
 date: 2025-10-20 16:24:00
-resolved: false
+resolved: true
 resolvedWhen: 2025-10-21 6:58:00
 # Possible severity levels: down, disrupted, notice
 severity: down
